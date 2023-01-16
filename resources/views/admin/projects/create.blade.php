@@ -65,7 +65,7 @@
                     {{-- / Description --}}
 
                     {{-- Year --}}
-                    <div class="mb-3">
+                    <div class="mb-3 col-4">
                         <label class="form-label" for="creation_year">Year of creation</label>
                         <input class="form-control  @error('creation_year') is-invalid @enderror" id="creation_year"
                             type="number" min="1990" max="2030" name="creation_year"
@@ -76,16 +76,19 @@
                             </div>
                         @enderror
                     </div>
-                    {{-- /Year --}}
+                    {{-- /Year --}
 
 
                     {{-- Types --}}
-
-                    <ul>
-                        @foreach ($types as $type)
-                            <li>{{ $type->name }}</li>
-                        @endforeach
-                    </ul>
+                    <div class="mb-3 col-4">
+                        <label for="type">Type:</label>
+                        <select name="type_id" id="type" class="form-select mt-2">
+                            <option value=""> - </option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}"> {{ $type->name }} </option>
+                            @endforeach
+                        </select>
+                    </div>
                     {{-- /Types --}}
 
 
