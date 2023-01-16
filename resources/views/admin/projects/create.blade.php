@@ -85,7 +85,9 @@
                         <select name="type_id" id="type" class="form-select mt-2">
                             <option value=""> - </option>
                             @foreach ($types as $type)
-                                <option value="{{ $type->id }}"> {{ $type->name }} </option>
+                                <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>
+                                    {{ $type->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
