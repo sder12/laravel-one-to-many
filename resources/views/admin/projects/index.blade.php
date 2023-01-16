@@ -32,6 +32,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Creation year</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -53,6 +54,8 @@
                                     @endif
                                 </td>
                                 {{-- /Images --}}
+
+                                <td>{{ $project->type ? $project->type->name : '---' }}</td>
 
                                 {{-- ACTIONS --}}
                                 <td>
