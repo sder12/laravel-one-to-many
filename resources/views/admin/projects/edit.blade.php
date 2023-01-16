@@ -46,13 +46,18 @@
                     <div class="mb-3">
                         <label class="form-label" for="cover_img">Image</label>
                         <input class="form-control @error('cover_img') is-invalid @enderror" id="cover_img" type="file"
-                            name="cover_img">
+                            name="cover_img" value="{{ $project->cover_img }}">
 
                         @error('cover_img')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
+                        {{-- Preview img --}}
+                        <div style="max-height: 200px">
+                            <img id="image_preview" src="{{ asset('storage/' . $project->cover_img) }}" class="w-25"
+                                alt="{{ $project->title . "'s cover img" }}">
+                        </div>
                     </div>
                     {{-- / IMAGE --}}
 
@@ -71,7 +76,7 @@
                     {{-- / Description --}}
 
                     {{-- Year --}}
-                    <div class="mb-3">
+                    <div class="mb-3 col-4">
                         <label class="form-label" for="creation_year">Year of creation</label>
                         <input class="form-control  @error('creation_year') is-invalid @enderror" id="creation_year"
                             type="number" min="1990" max="2030" value="{{ $project->creation_year }}"
@@ -84,6 +89,21 @@
                         @enderror
                     </div>
                     {{-- / Year --}}
+
+                    {{-- Types --}}
+                    <div class="mb-3 col-4">
+                        <label for="type">Type:</label>
+                        <select name="type_id" id="type" class="form-select mt-2">
+                            <option value=""> - </option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected($project->type?->id == $type->id)>
+                                    {{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    {{-- /Types --}}
+
 
                     {{-- Btn SAVE --}}
                     <div class="mb-3 pt-2">
