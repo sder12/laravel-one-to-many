@@ -78,6 +78,17 @@
                     </div>
                     {{-- /Year --}}
 
+
+                    {{-- Types --}}
+
+                    <ul>
+                        @foreach ($types as $type)
+                            <li>{{ $type->name }}</li>
+                        @endforeach
+                    </ul>
+                    {{-- /Types --}}
+
+
                     {{-- Btn CREATE --}}
                     <div class="mb-3 pt-2">
                         <button type="submit" class="btn btn-success">Create</button>
