@@ -42,13 +42,13 @@
                 {{-- / Description --}}
 
                 {{-- Image --}}
-                <div class="mt-4 text-center">
+                <div class="mt-4 d-flex justify-content-center">
                     {{-- <strong class="d-block">Image:</strong> --}}
                     @if ($project->cover_img)
                         <img class="w-25 rounded border border-dark" src="{{ asset('storage/' . $project->cover_img) }}"
                             alt="{{ 'cover img of ' . $project->title }}">
                     @else
-                        <div class="w-75 py-4 text-center bg-warning bg-opacity-25"> NO IMAGE </div>
+                        <div class="w-25 py-4 text-center bg-warning bg-opacity-25"> No image found </div>
                     @endif
                 </div>
                 {{-- / Image --}}
